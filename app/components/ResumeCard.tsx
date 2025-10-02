@@ -15,12 +15,13 @@ const ResumeCard =({resume:{id,companyName,jobTitle,feedback,imagePath}}:{resume
         </div>
             <div className="gradient-border animate-in fade-in duration-1000">
                 <div className="w-full h-full">
-                   <img
+                   {imagePath && (
+                     <img
                        src={imagePath}
                        alt="resume"
                        className="w-full h-[350px] max-sm:[200px] object-cover object-top"
-                   />
-
+                     />
+                   )}
                 </div>
             </div>
         </Link>
