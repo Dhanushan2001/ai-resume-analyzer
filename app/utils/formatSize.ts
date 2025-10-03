@@ -6,6 +6,12 @@
  *  - formatSize(1536) => "1.5 KB"
  *  - formatSize(1048576) => "1 MB"
  */
+import {twMerge} from "tailwind-merge";
+import {type ClassValue,clsx} from "clsx"
+
+export function cn(...inputs:ClassValue[]) {
+     return twMerge(clsx(inputs))
+}
 export function formatSize(bytes: number): string {
   if (!Number.isFinite(bytes) || bytes < 0) return "-";
   if (bytes === 0) return "0 B";
