@@ -50,8 +50,8 @@ const Upload = () => {
         if(!feedback) return setStatusText('Error:Failed to analyze resume');
 
         const feedbackText=typeof feedback.message.content==='string'
-        ? feedback.message.content
-        :feedback.message.content[0].text;
+            ? feedback.message.content
+            :feedback.message.content[0].text;
 
         data.feedback=JSON.parse(feedbackText);
         await kv.set(`resume:${uuid}`,JSON.stringify(data));
@@ -71,7 +71,7 @@ const Upload = () => {
         const jobTitle=formData.get('job-title')as string;
         const jobDescription=formData.get('job-description')as string;
 
-      if(!file) return;
+        if(!file) return;
         handleAnalyze({companyName,jobTitle,jobDescription,file});
 
     }
@@ -105,12 +105,12 @@ const Upload = () => {
                                 <label htmlFor="job-description">Job-description</label>
                                 <textarea rows={5} id="job-description" name="job-description"  placeholder="job-description" />
                             </div>
-                                <div className="form-div">
-                                    <label htmlFor="uploader">Upload Resume</label>
-                                   <FileUploader onFileSelect={handleFileSelect}/>
-                                </div>
+                            <div className="form-div">
+                                <label htmlFor="uploader">Upload Resume</label>
+                                <FileUploader onFileSelect={handleFileSelect}/>
+                            </div>
                             <button className="primary-button" type="submit">
-                                    Analyze Resume
+                                Analyze Resume
                             </button>
 
                         </form>
